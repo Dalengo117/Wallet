@@ -85,3 +85,38 @@
     <script src="js/graficas.js"></script>
 </body>
 </html>
+</html>
+    <script>
+        const ctxDona = document.getElementById('myChartDona').getContext('2d');
+        const myChartDona = new Chart(ctxDona, {
+        type: 'pie',
+        data: {
+            labels: [
+                'Comida',
+                'Arriendo',
+                'Servicios',
+                'Gasolina'
+            ],
+            datasets: [{
+                label: 'Gastos',
+                data: [873300, 404700, 191700,660300],
+                backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)',
+                'rgb(235, 105, 6)'
+                ],
+                hoverOffset: 4
+            }]
+        },
+
+    });  
+    function CargarDatosGraficoPie(){
+        $.ajax({
+            url:'controlador_grafico.php',
+            type:'POST'
+        }).done(function(resp){
+            alert(resp);
+        })
+    }
+    </script>
